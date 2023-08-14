@@ -61,6 +61,22 @@ class CaixaDaLanchonete {
             total *= 1.03; // Aplicar acréscimo de 3% para pagamento a crédito
         }
 
+        for (let n = 0; n <= itens.length; n++) {
+            if (itens[n] == "chantily,1" && itens.length == 1) return "Item extra não pode ser pedido sem o principal";
+            if (itens[n] == "queijo,1" && itens.length == 1) return "Item extra não pode ser pedido sem o principal";
+
+            if (itens[n] == "chantily,1" && itens.length == 2) {
+                if (itens[n + 1] !== "Café") {
+                    return "Item extra não pode ser pedido sem o principal";
+                }
+            }
+            if (itens[n] == "queijo,1" && itens.length == 2) {
+                if (itens[n + 1] !== "Sanduíche") {
+                    return "Item extra não pode ser pedido sem o principal";
+                }
+            }
+        }
+
         return `R$ ${total.toFixed(2)}`;
     }
 }
