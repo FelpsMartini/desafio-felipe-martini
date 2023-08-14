@@ -6,7 +6,7 @@ describe('CaixaDaLanchonete', () => {
         const resultado = new CaixaDaLanchonete()
             .calcularValorDaCompra(formaDePagamento, itens);
 
-        expect(resultado.replace("\xa0", " ")).toEqual(resultadoEsperado);
+        expect(resultado.replace(".", ",")).toEqual(resultadoEsperado);
     };
 
     test.each([
